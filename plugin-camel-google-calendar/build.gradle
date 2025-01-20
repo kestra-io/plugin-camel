@@ -1,0 +1,24 @@
+project.description = 'Connect to Google Calendar using Kestra\'s Apache Camel plugin.'
+
+jar {
+    manifest {
+        attributes(
+                "X-Kestra-Name": project.name,
+                "X-Kestra-Title": "Google Calendar",
+                "X-Kestra-Group": project.group + ".camel.googlecalendar",
+                "X-Kestra-Description": project.description,
+                "X-Kestra-Version": project.version
+        )
+    }
+}
+
+dependencies {
+    implementation("org.apache.camel:camel-google-calendar:4.8.1")
+    implementation("org.apache.camel:camel-core:4.8.1")
+    implementation("com.google.oauth-client:google-oauth-client-jetty:1.36.0")
+    implementation("com.google.apis:google-api-services-calendar:v3-rev411-1.25.0")
+    implementation("com.google.api-client:google-api-client-gson:2.7.0")
+    implementation project(':plugin-camel')
+
+    testImplementation project(':plugin-camel').sourceSets.test.output
+}
