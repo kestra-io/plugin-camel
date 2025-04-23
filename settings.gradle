@@ -1,1 +1,4 @@
-rootProject.name = 'plugin-template'
+rootProject.name = 'plugin-camels'
+
+include 'plugin-camel'
+include 'plugin-camel-google-calendar'
